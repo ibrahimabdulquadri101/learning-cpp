@@ -1,0 +1,28 @@
+<!doctype html>
+
+<head>
+  <title>Tag</title>
+  <style>
+    h1 {
+      background-color: green;
+    }
+    p {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>THis is my goal</h1>
+  <p>I am walking rn</p>
+  <button>Click me</button>
+</body>
+
+<script>
+  const button = document.querySelector("button");
+  const h1 = document.querySelector("h1");
+  button.addEventListener("", () => {
+    h1.style.backgroundColor = "red";
+    h1.textContent = "Since the button is clicked, I changed to red";
+  });
+</script>
