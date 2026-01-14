@@ -1,42 +1,46 @@
 #include <iostream>
-#include <cassert>
-#include <cstdlib>
 
-bool isLowerVowel(char c)
+double getChar()
 {
-    switch (c) 
-    {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
-            return true;
-        default:
-            return false;
-    }
+    std::cout << "Enter the number you like:"<<std::endl;
+    double x;
+    std::cin >> x;
+    return x;
 }
 
-int Vowel()
+char getOperator()
 {
-    #ifdef NDEBUG
-    // If NDEBUG is defined, asserts are compiled out.
-    // Since this function requires asserts to not be compiled out, we'll terminate the program if this function is called when NDEBUG is defined.
-    std::cerr << "Tests run with NDEBUG defined (asserts compiled out)";
-    std::abort();
-#endif
+    std::cout << "Enter one of the following: +, -, *, or /: " <<std::endl;
+    char x;
+    std::cin >> x;
+    return x;
+}
 
-assert(isLowerVowel('a'));
-assert(isLowerVowel('i'));
-return 0;
+void Calculate(double x , char op , double y)
+{
+    std::cout << x << ' ' << op << ' ' << y << " is ";
+    switch (op)
+    {
+    case '+':
+        std::cout << x + y << std::endl;
+        return;
+    case '-':
+        std::cout << x - y << std::endl;
+        return;
+    case '*':
+        std::cout << x * y << std::endl;
+        return;
+    case '/':
+        std::cout << x/y  << std::endl;
+        return;
+    }
 }
 
 int main()
 {
-    Vowel();
-
-    // If we reached here, all tests must have passed
-    std::cout << "All tests succeeded\n";
-
+    double x{getChar()};
+    char op{getOperator()};
+    double y{getChar()};
+    Calculate(x,op,y);
     return 0;
 }
